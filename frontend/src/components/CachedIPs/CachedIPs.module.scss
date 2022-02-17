@@ -1,0 +1,17 @@
+.list_container {
+  max-height: 75vh;
+  overflow: auto;
+  list-style-type: none;
+}
+
+.ipObj_container {
+  padding: 0.5rem 0;
+
+  div {
+    display: flex;
+
+    span {
+      padding-right: 1rem;
+    }
+  }
+}
