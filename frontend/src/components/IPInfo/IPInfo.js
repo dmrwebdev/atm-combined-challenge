@@ -4,6 +4,7 @@ import styles from "./IPInfos.module.scss";
 export default function IPInfo() {
   const [ipAddressInput, setIpAddressInput] = useState("");
   const [serverResponse, setServerResponse] = useState(null);
+  const [error, setError] = useState(null);
 
   async function handleSubmit() {
     try {
@@ -15,10 +16,11 @@ export default function IPInfo() {
       setServerResponse(jsonRes);
     } catch (err) {
       console.log(err);
+      setError("Unknown IP address");
     }
   }
   return (
-    <div>
+    <div className={styles.container}>
       <h2>
         Enter an IP address below to find the city and country it belongs too.
       </h2>
@@ -36,6 +38,7 @@ export default function IPInfo() {
         />
         <button>Submit</button>
       </form>
+      {error && <p>Unknown IP Address</p>}
       {serverResponse && (
         <div className={styles.ip_info_results_container}>
           <div>

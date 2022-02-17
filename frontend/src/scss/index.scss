@@ -1,1 +1,55 @@
 @import "./reset";
+
+body {
+  display: flex;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+}
+
+button {
+  /*  background-color: green; */
+}
+
+#root {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background: no-repeat center/contain url("../assets/bg.png");
+}
+
+.App {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main_container {
+  background-color: #f0f0f0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  box-shadow: 0px 010px 20px 10px #00000083;
+}
+
+.view_switch {
+  margin-top: 1rem;
+}
