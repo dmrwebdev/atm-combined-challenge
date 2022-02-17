@@ -1,9 +1,14 @@
 import express from "express";
+import cors from "cors";
 import fetch from "node-fetch";
 import NodeCache from "node-cache";
 
 const app = express();
 const port = 8015;
+
+const corsOptions = {
+  cors: { origin: "*" },
+};
 
 // Unsure of a suitable TTL, set to unlimited for now
 const cache = new NodeCache({ stdTTL: 0 });
@@ -23,13 +28,15 @@ const checkCache = (req, res, next) => {
   }
 };
 
+app.use(express.static("public"));
+
 // Main page routing
 app.get("/", (req, res) => {
   res.send("IP Geolocation Lookup!");
 });
 
 // Fetch incoming IPs geo data from GeoJS
-app.get("/ipinfo/:ip", checkCache, async (req, res) => {
+app.get("/ipinfo/:ip", cors(corsOptions), checkCache, async (req, res) => {
   try {
     const { ip } = req.params;
 
@@ -61,7 +68,7 @@ app.get("/ipinfo/:ip", checkCache, async (req, res) => {
 });
 
 // Get all previously queried IPs cached on the server
-app.get("/cachedips", async (req, res) => {
+app.get("/cachedips", cors(corsOptions), async (req, res) => {
   try {
     const { city, country } = req.query;
 
