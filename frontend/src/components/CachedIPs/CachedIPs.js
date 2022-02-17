@@ -7,7 +7,7 @@ export default function CachedIPs({ cachedView }) {
 
   useEffect(() => {
     async function getCachedIPs() {
-      const response = await fetch(`http://localhost:3000/cachedips`);
+      const response = await fetch(`http://localhost:8015/cachedips`);
       setServerResponse(await response.json());
     }
 
@@ -16,12 +16,6 @@ export default function CachedIPs({ cachedView }) {
     }
   }, [cachedView]);
 
-  async function handleSubmit() {
-    const response = await fetch(`http://localhost:3000/cachedips`);
-
-    const jsonRes = await response.json();
-    setServerResponse(jsonRes);
-  }
   return (
     <div className={styles.container}>
       <h2>Previously Searched IP Addresses</h2>
@@ -44,28 +38,6 @@ export default function CachedIPs({ cachedView }) {
             </li>
           ))}
       </ul>
-      {/*       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleSubmit();
-        }}
-      >
-        <label for="ipaddress">IP Address:</label>
-        <input
-          id="ipaddress"
-          type="text"
-          onChange={(e) => setIpAddressInput(e.target.value)}
-        />
-        <button>Submit</button>
-      </form>
-      <div>
-        <div className="">
-          <p>City:</p>
-          <p>{serverResponse && serverResponse.city}</p>
-        </div>
-        <p>Country:</p>
-        <p>{serverResponse && serverResponse.country}</p>
-      </div> */}
     </div>
   );
 }

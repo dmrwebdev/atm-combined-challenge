@@ -9,7 +9,7 @@ export default function IPInfo() {
   async function handleSubmit() {
     try {
       const response = await fetch(
-        `http://localhost:3000/ipinfo/${ipAddressInput}`
+        `http://localhost:8015/ipinfo/${ipAddressInput}`
       );
 
       const jsonRes = await response.json();
@@ -43,10 +43,10 @@ export default function IPInfo() {
         <div className={styles.ip_info_results_container}>
           <div>
             <p>City:</p>
-            <p>{serverResponse && serverResponse.city}</p>
+            <p>Country:</p>
           </div>
           <div>
-            <p>Country:</p>
+            <p>{serverResponse && serverResponse.city}</p>
             <p>{serverResponse && serverResponse.country}</p>
           </div>
         </div>

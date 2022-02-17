@@ -5,8 +5,19 @@
 }
 
 .ip_info_results_container {
+  display: flex;
+  justify-content: center;
+
+  div:first-child {
+    p {
+      text-align: right;
+    }
+  }
+
   div {
-    display: flex;
+    p {
+      margin: 0 0.5rem;
+    }
   }
 }
 
