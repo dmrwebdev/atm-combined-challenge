@@ -23,7 +23,7 @@ export default function CachedIPs({ cachedView }) {
     setServerResponse(jsonRes);
   }
   return (
-    <div>
+    <div className={styles.container}>
       <h2>Previously Searched IP Addresses</h2>
       <ul className={styles.list_container}>
         {serverResponse &&
@@ -32,14 +32,12 @@ export default function CachedIPs({ cachedView }) {
               <div className={styles.ipObj_container}>
                 <div>
                   <span>IP:</span>
-                  <p>{ip.ip}</p>
-                </div>
-                <div>
                   <span>City:</span>
-                  <p>{ip.city}</p>
+                  <span>Country:</span>
                 </div>
                 <div>
-                  <span>Country:</span>
+                  <p>{ip.ip}</p>
+                  <p>{ip.city}</p>
                   <p>{ip.country}</p>
                 </div>
               </div>

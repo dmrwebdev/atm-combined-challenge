@@ -1,14 +1,33 @@
-.list_container {
-  max-height: 75vh;
+.container {
+  max-height: 80vh;
+  height: 100%;
   overflow: auto;
+}
+
+.list_container {
+  padding: 0.5rem;
   list-style-type: none;
 }
 
 .ipObj_container {
+  margin: 0.5rem 0;
   padding: 0.5rem 0;
+  display: flex;
+  /*  */
+
+  div:first-child {
+    text-align: end;
+
+    /* - */
+  }
 
   div {
     display: flex;
+    flex-direction: column;
+
+    /*     p {
+      border: 2px solid black;
+    } */
 
     span {
       padding-right: 1rem;
