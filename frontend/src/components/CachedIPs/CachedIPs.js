@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import styles from "./CachedIPs.module.scss";
 
 export default function CachedIPs({ cachedView }) {
-  const [ipAddressInput, setIpAddressInput] = useState("");
   const [serverResponse, setServerResponse] = useState(null);
 
   useEffect(() => {
